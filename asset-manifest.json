@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/front-end-trainee-test-task/static/css/main.8cb73f64.css",
+    "main.js": "/front-end-trainee-test-task/static/js/main.03468b5a.js",
+    "static/js/453.c29bbe61.chunk.js": "/front-end-trainee-test-task/static/js/453.c29bbe61.chunk.js",
+    "index.html": "/front-end-trainee-test-task/index.html",
+    "main.8cb73f64.css.map": "/front-end-trainee-test-task/static/css/main.8cb73f64.css.map",
+    "main.03468b5a.js.map": "/front-end-trainee-test-task/static/js/main.03468b5a.js.map",
+    "453.c29bbe61.chunk.js.map": "/front-end-trainee-test-task/static/js/453.c29bbe61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8cb73f64.css",
+    "static/js/main.03468b5a.js"
+  ]
+}
