@@ -1,0 +1,33 @@
+.App {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__section {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 4rem;
+  padding: 2.5rem 0;
+}
+
+@media (max-width: 1440px) {
+  .header {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.footer {
+  padding: 2.5rem 0;
+}
+
+.footer > .page__section {
+  display: flex;
+  justify-content: center;
+}

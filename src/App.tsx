@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Heading, P, Text } from "vienna-ui";
+import styles from "./App.module.css";
+import { UserTable } from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={styles.App}>
+      <header className={`${styles.header} ${styles.page__section}`}>
+        <Heading>Front-end trainee test task</Heading>
+        <P className="" size={"xl"}>
+          Никита Жуйков
+        </P>
       </header>
+      <main>
+        <section className={styles.page__section}>
+          <UserTable />
+        </section>
+      </main>
+
+      <footer className={styles.footer}>
+        <div className={styles.page__section}>
+          <Text align={"center"}>2024</Text>
+        </div>
+      </footer>
     </div>
   );
 }
