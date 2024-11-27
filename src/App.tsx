@@ -11,7 +11,7 @@ function App() {
           Никита Жуйков
         </P>
       </header>
-      <main>
+      <main className={styles.main}>
         <section className={styles.page__section}>
           <UserTable />
         </section>
