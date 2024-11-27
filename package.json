@@ -1,9 +1,9 @@
 {
   "name": "raiff-front-end-trainee-test-task",
   "version": "0.1.0",
+  "homepage": "https://Nikita-Zh.github.io/front-end-trainee-test-task",
   "private": true,
   "dependencies": {
-    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -37,7 +37,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://nikita-zh.github.io/front-end-trainee-test-task",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
@@ -45,6 +44,7 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.0",
     "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1"
+    "@types/react-dom": "^18.3.1",
+    "gh-pages": "^6.2.0"
   }
 }
