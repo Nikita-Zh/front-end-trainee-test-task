@@ -1,16 +1,17 @@
-import { Heading, P, Text } from "vienna-ui";
+import { Body, Heading, P, Text } from "vienna-ui";
 import styles from "./App.module.css";
 import { UserTable } from "./components";
 
 function App() {
   return (
-    <div className={styles.App}>
+    <Body className={styles.App}>
       <header className={`${styles.header} ${styles.page__section}`}>
         <Heading>Front-end trainee test task</Heading>
         <P className="" size={"xl"}>
           Никита Жуйков
         </P>
       </header>
+
       <main className={styles.main}>
         <section className={styles.page__section}>
           <UserTable />
@@ -22,7 +23,7 @@ function App() {
           <Text align={"center"}>2024</Text>
         </div>
       </footer>
-    </div>
+    </Body>
   );
 }
 

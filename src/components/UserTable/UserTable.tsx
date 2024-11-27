@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Table, EmptyState, RoundIcon, SortDirection, Button } from "vienna-ui";
 import { CloseCancelX } from "vienna.icons";
 
@@ -81,51 +81,56 @@ export const UserTable = () => {
     setFilter(Object.assign({}, data));
   };
 
-  const data = (function () {
-    let data = dataTable;
-    if (filter) {
-      data = data.filter((row) => {
-        let filtered = true;
+  const data = useMemo(
+    function () {
+      let data = dataTable;
+      if (filter) {
+        data = data.filter((row) => {
+          let filtered = true;
 
-        if (filtered && filter.firstName) {
-          const re = new RegExp(filter.firstName, "i");
-          filtered = filtered && row.firstName.search(re) !== -1;
-        }
-        if (filtered && filter.lastName) {
-          const re = new RegExp(filter.lastName, "i");
-          filtered =
-            (filtered && !filter.lastName) || row.lastName.search(re) !== -1;
-        }
-        if (filtered && filter.email) {
-          const re = new RegExp(filter.email, "i");
-          filtered = (filtered && !filter.email) || row.email.search(re) !== -1;
-        }
-        if (filtered && filter.company) {
-          const re = new RegExp(filter.company, "i");
-          filtered =
-            (filtered && !filter.company) || row.company.search(re) !== -1;
-        }
-        if (filtered && filter.phone) {
-          const re = new RegExp(filter.phone, "i");
-          filtered = (filtered && !filter.phone) || row.phone.search(re) !== -1;
-        }
+          if (filtered && filter.firstName) {
+            const re = new RegExp(filter.firstName, "i");
+            filtered = filtered && row.firstName.search(re) !== -1;
+          }
+          if (filtered && filter.lastName) {
+            const re = new RegExp(filter.lastName, "i");
+            filtered =
+              (filtered && !filter.lastName) || row.lastName.search(re) !== -1;
+          }
+          if (filtered && filter.email) {
+            const re = new RegExp(filter.email, "i");
+            filtered =
+              (filtered && !filter.email) || row.email.search(re) !== -1;
+          }
+          if (filtered && filter.company) {
+            const re = new RegExp(filter.company, "i");
+            filtered =
+              (filtered && !filter.company) || row.company.search(re) !== -1;
+          }
+          if (filtered && filter.phone) {
+            const re = new RegExp(filter.phone, "i");
+            filtered =
+              (filtered && !filter.phone) || row.phone.search(re) !== -1;
+          }
 
-        return filtered;
-      });
-    }
-    if (sort) {
-      const { field, direction } = sort;
-      const dir = direction === "desc" ? 1 : -1;
-      data = data.sort((a, b) => {
-        const nameA = a[field as keyof DataRow].toUpperCase();
-        const nameB = b[field as keyof DataRow].toUpperCase();
+          return filtered;
+        });
+      }
+      if (sort) {
+        const { field, direction } = sort;
+        const dir = direction === "desc" ? 1 : -1;
+        data = data.sort((a, b) => {
+          const nameA = a[field as keyof DataRow].toUpperCase();
+          const nameB = b[field as keyof DataRow].toUpperCase();
 
-        const result = nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
-        return result * dir;
-      });
-    }
-    return data;
-  })();
+          const result = nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+          return result * dir;
+        });
+      }
+      return data;
+    },
+    [dataTable, filter, sort]
+  );
 
   return (
     <Table data={data} onFilter={onFilter} onSort={onSort}>
